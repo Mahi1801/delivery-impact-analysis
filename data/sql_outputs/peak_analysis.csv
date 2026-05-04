@@ -1,0 +1,5 @@
+period,peak_flag,total_orders,avg_delivery_time,on_time_pct
+Before,Non-Peak,7314,25.6,16.2
+Before,Peak,6832,29.11,1.5
+After,Non-Peak,7114,31.44,0.6
+After,Peak,5910,39.82,0.1

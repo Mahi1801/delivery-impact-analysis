@@ -1,0 +1,3 @@
+period,total_orders,avg_delivery_time,cancel_pct
+Before,244,43.53,0.0
+After,164,52.49,0.0

@@ -1,0 +1,7 @@
+period,distance_bucket,total_orders,avg_delivery_time,sla_breach_pct
+Before,Short (0-3 km),2859,20.89,5.6
+Before,Medium (3-7 km),8618,26.19,6.9
+Before,Long (7+ km),2669,37.72,13.0
+After,Short (0-3 km),2749,29.01,56.4
+After,Medium (3-7 km),8005,34.66,59.6
+After,Long (7+ km),2270,44.84,65.5

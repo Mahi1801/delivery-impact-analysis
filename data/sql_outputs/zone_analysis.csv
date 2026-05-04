@@ -1,0 +1,7 @@
+period,zone,total_orders,avg_delivery_time,cancel_rate_pct
+Before,High,7028,25.89,0.0
+Before,Low,2842,30.55,0.0
+Before,Medium,4276,27.44,0.0
+After,High,6660,33.33,0.0
+After,Low,2463,40.34,0.0
+After,Medium,3901,35.28,0.0
