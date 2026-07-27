@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib as mpl
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-import seaborn as sns
+
 from scipy import stats
 import os
 import warnings
@@ -20,8 +20,7 @@ st.set_page_config(
 # ── COLORS ─────────────────────────────────────────────────────────────────────
 BEFORE  = "#4C72B0"
 AFTER   = "#DD8452"
-BG      = "#0f1117"
-CARD_BG = "#1a1d27"
+_BOXPLOT_LABELS = "tick_labels" if tuple(int(x) for x in mpl.__version__.split(".")[:2]) >= (3, 9) else "labels"
 
 # ── CUSTOM CSS ─────────────────────────────────────────────────────────────────
 st.markdown("""
@@ -335,10 +334,14 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
 
-kpis = get_kpis(df)
 before_df = df[df["period"] == "Before"]
 after_df  = df[df["period"] == "After"]
 
+if before_df.empty or after_df.empty:
+    st.warning("Filter selection excludes all data for one or both periods. Adjust filters to see analysis.")
+    st.stop()
+
+kpis = get_kpis(df)
 
 # ══════════════════════════════════════════════════════════════════════════════
 # PAGE 1 — EXECUTIVE SUMMARY
@@ -534,8 +537,9 @@ elif page == "📈 Delivery Trends":
     axes[0].legend(facecolor="#252837", labelcolor="#ccc")
     axes[0].grid(axis="y", color="#2a2d3a", linewidth=0.5)
 
-    bp_data = [before_df["delivery_time_min"].values, after_df["delivery_time_min"].values]
-    bp = axes[1].boxplot(bp_data, patch_artist=True, labels=["Before", "After"],
+    bp_data = [before_df["delivery_time_min"].tolist(), after_df["delivery_time_min"].tolist()]
+    bp = axes[1].boxplot(bp_data, patch_artist=True, **{_BOXPLOT_LABELS: ["Before", "After"]},
+
                          medianprops=dict(color="#fff", linewidth=2),
                          whiskerprops=dict(color="#555"),
                          capprops=dict(color="#555"),

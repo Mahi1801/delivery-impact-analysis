@@ -7,12 +7,12 @@ This project quantifies the performance impact of that removal using
 data analytics, statistical testing, and business intelligence.
 
 ## Key Findings
-- Average delivery time increased by **X%** (from X.X to X.X mins)
-- On-time delivery % dropped from **X%** to **X%**
-- Cancellation rate rose from **X%** to **X%**
-- Peak hours showed **1.8x more degradation** than non-peak
-- Long-distance + Low-density orders were the worst affected segment
-- Estimated revenue impact: **₹X over the 30-day post-removal window**
+- Average delivery time increased by **30.0%** (from 27.4 to 35.6 mins)
+- On-time delivery % dropped from **9.1%** to **0.4%**
+- Cancellation rate rose from **3.76%** to **11.46%**
+- Peak hours showed **1.5x more degradation** than non-peak (+37% vs +24%)
+- Long-distance + Low-density orders were the worst affected segment (avg 52.7 min, 15.5% cancel rate)
+- Estimated revenue impact: **₹59,482 over the 30-day post-removal window**
 
 ## Tools & Technologies
 | Tool | Purpose |
